@@ -7,17 +7,17 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">All Animal</Link>
           </li>
           <li>
             <Link to="/add-animals">Add Animal</Link>
           </li>
           <li>
-            <Link to="/categories">Add Categories</Link>
-          </li>
-          <li>
             <Link to="/categorieslist">All Categories</Link>
           </li>
+          <li>
+            <Link to="/categories">Add Categories</Link>
+          </li>          
           <li>
             <Link to="/CategAndAnim">All Animals with categories</Link>
           </li>
