@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { getAnimals, deleteAnimal, updateAnimal } from '../animals.api';
 import Header from './Header';
 
-const Home = () => {
+const animalList = () => {
   const [animals, setAnimals] = useState([]);
   const [editingAnimal, setEditingAnimal] = useState(null);
   const [formData, setFormData] = useState({
@@ -147,4 +147,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default animalList;
