@@ -5,6 +5,7 @@ import Header from './Header';
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const [editMode, setEditMode] = useState(null);
+  const [originalCategory, setOriginalCategory] = useState({});
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -18,9 +19,21 @@ const CategoryList = () => {
     fetchCategories();
   }, []);
 
-  const handleEdit = (id) => setEditMode(id);
+  const handleEdit = (category) => {
+    setEditMode(category._uuid);
+    setOriginalCategory(category);
+  };
 
   const handleSave = async (id, updatedData) => {
+    if (!updatedData.title.trim()) {
+      alert('Title cannot be empty.');
+      return;
+    }
+    if (!updatedData.description.trim()) {
+      alert('Description cannot be empty.');
+      return;
+    }
+
     try {
       await updateCategory(id, updatedData);
       setCategories(prevCategories =>
@@ -84,14 +97,18 @@ const CategoryList = () => {
                     description: category.description,
                     easyCare: category.easyCare,
                   })}>Save</button>
-                  <button onClick={() => setEditMode(null)}>Cancel</button>
+                  <button onClick={() => {
+                    setEditMode(null);
+                    category.title = originalCategory.title;
+                    category.description = originalCategory.description;
+                  }}>Cancel</button>
                 </>
               ) : (
                 <>
                   <h3>{category.title}</h3>
                   <p>{category.description}</p>
                   <p>Easy Care: {category.easyCare ? 'Yes' : 'No'}</p>
-                  <button onClick={() => handleEdit(category._uuid)}>Edit</button>
+                  <button onClick={() => handleEdit(category)}>Edit</button>
                   <button onClick={() => handleDelete(category._uuid)}>Delete</button>
                 </>
               )}
