@@ -1,0 +1,296 @@
+*{
+  padding: 0;
+  margin: 0;
+  color: blanchedalmond;  
+}
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+body {
+  background-image: url("./pages/bachimg.jpg");
+  background-repeat: no-repeat, repeat;
+  background-size: 100%;
+  background-color: #010409FF;
+}
+
+
+header > nav {
+  padding: 10px 0;
+}
+
+header > nav > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header > nav > ul > li{
+  margin: 0 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+header > nav > ul > li:hover {
+  cursor: pointer;
+}
+
+header > nav > ul > li > a{
+  text-decoration: none;
+  color: rgb(234, 195, 43);
+}
+
+header > nav > ul > li:active {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+} 
+
+h2 {
+  text-align: center;
+}
+.animlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.animlist > li {
+  border: double black 2px;
+  background-color: rgba(240, 248, 255, 0.2);
+  border-radius: 5px 25px;
+  margin: 5px;
+  height: 170px;
+  width: 250px;
+  padding: 15px;
+}
+
+.animlist > li > button {
+  background-color: rgba(7, 81, 211, 0.2);
+  border-radius: 5px;
+  height: 20px;
+  width: 60px;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.animlist > li > button:hover {
+  box-shadow: rgb(196, 65, 5) 0 -4px 8px;
+}
+
+.animal-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  margin: 10px;
+}
+
+.animal-form input[type="text"],
+.animal-form input[type="number"],
+.animal-form textarea {
+  flex: 1 1 150px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 50px;
+  color: black;
+}
+
+.animal-form textarea {
+  resize: none;
+}
+
+.animal-form label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.animal-form button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  background-color: #2295e2;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.animal-form button:hover {
+  background-color: #1153c4;
+  box-shadow: #1153c4 2px 4px 5px;
+}
+
+.careg-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  list-style-type: none;
+  margin: 15px;
+}
+
+.careg-list li {
+  padding: 15px;
+  border: 1px solid rgba(204, 204, 204,);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color:  rgba(204, 204, 204, 0.2);
+  width: 150px;
+}
+
+.careg-list h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.careg-list p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.careg-list input[type="text"] {
+  width: 85%;
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 14px;
+  color: #2239bd;
+}
+
+.careg-list label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.careg-list button {
+  margin: 2px;
+  width: 70px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  background-color: #2239bd;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.careg-list button:hover {
+  background-color: #097ed1;
+}
+
+.careg-list button:nth-child(2) {
+  background-color: #f44336;
+}
+
+.careg-list button:nth-child(2):hover {
+  background-color: #d32f2f;
+}
+
+.categories form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: rgba(249, 249, 249, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.categories input[type="text"],
+.categories label,
+.categories button {
+  height: 40px;
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 10%;
+  color: #2239bd;
+}
+
+.categories label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #f1c046;
+}
+
+.categories button {
+  width: auto;
+  background-color: #3609b2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.categories button:hover {
+  background-color: #f80808;
+}
+
+.all-anim-categ {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 20px;
+  list-style-type: none;
+}
+
+.all-anim-categ li {
+  background-color: rgba(30, 30, 30, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #ddd;
+}
+
+.all-anim-categ p {
+  margin: 5px 0;
+}
+
+.all-anim-categ label, .all-anim-categ select {
+  width: 100%;
+  margin-top: 10px;
+  color: #fff; /* ტექსტის ფერი არჩევის ჩასასმელში */
+}
+
+.all-anim-categ select {
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: #ddd;
+  padding: 5px;
+}
+
+.all-anim-categ button {
+  background-color: #2408dc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.all-anim-categ button:hover {
+  background-color: #02063b;
+}
