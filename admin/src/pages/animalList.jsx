@@ -78,7 +78,7 @@ const AnimalList = () => {
       <h2>All Animals</h2>
       <div>
         {editingAnimal ? (
-          <div>
+          <div  className="edd-anim">
             <h3>Edit Animal</h3>
             <input
               type="text"
