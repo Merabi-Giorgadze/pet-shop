@@ -269,7 +269,7 @@ h2 {
 .all-anim-categ label, .all-anim-categ select {
   width: 100%;
   margin-top: 10px;
-  color: #fff; /* ტექსტის ფერი არჩევის ჩასასმელში */
+  color: #fff;
 }
 
 .all-anim-categ select {
@@ -293,4 +293,52 @@ h2 {
 
 .all-anim-categ button:hover {
   background-color: #02063b;
+}
+
+.edd-anim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  margin: auto;
+}
+
+.edd-anim h3 {
+  margin-bottom: 15px;
+}
+
+.edd-anim input[type="text"],
+.edd-anim input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  background-color: #097ed1;
+}
+
+.edd-anim label {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.edd-anim button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #333;
+}
+
+.edd-anim button:hover {
+  background-color: #555;
+  color: #fff;
 }
