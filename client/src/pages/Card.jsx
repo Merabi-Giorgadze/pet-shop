@@ -80,7 +80,7 @@ const Card = () => {
       );
 
       const totalPrice = isDollar
-        ? (animal.price * quantity * 2.6).toFixed(2)
+        ? (animal.price * quantity / 2.6).toFixed(2)
         : (animal.price * quantity).toFixed(2);
 
 
@@ -110,7 +110,7 @@ const Card = () => {
           wishlist.map(animal => {
             const quantity = quantities[animal._uuid] || 1;
             const totalPrice = (animal.price && !isNaN(animal.price)) 
-              ? (isDollar ? (Number(animal.price) * quantity * 2.6).toFixed(2) : (Number(animal.price) * quantity).toFixed(2)) 
+              ? (isDollar ? (Number(animal.price) * quantity / 2.6).toFixed(2) : (Number(animal.price) * quantity).toFixed(2)) 
               : 'N/A';
 
             return (
@@ -125,7 +125,7 @@ const Card = () => {
                   <strong>Popularity:</strong> {animal.isPopular ? 'Yes' : 'No'}
                 </div>
                 <div>
-                  <strong>Price:</strong> {animal.price && !isNaN(animal.price) ? (isDollar ? (Number(animal.price) * 2.6).toFixed(2) : Number(animal.price).toFixed(2)) : 'N/A'} {isDollar ? '$' : '₾'}
+                  <strong>Price:</strong> {animal.price && !isNaN(animal.price) ? (isDollar ? (Number(animal.price) / 2.6).toFixed(2) : Number(animal.price).toFixed(2)) : 'N/A'} {isDollar ? '$' : '₾'}
                 </div>
                 <div>
                   <strong>Stock:</strong> {typeof animal.stock === 'number' ? animal.stock : 'N/A'}
