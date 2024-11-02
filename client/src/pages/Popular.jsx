@@ -29,7 +29,7 @@ const Popular = () => {
     : popularAnimals;
 
   const handleAddAnimal = (animal) => {
-    dispatch(addAnimal(animal)); // Send the entire animal object to Redux
+    dispatch(addAnimal(animal));
   };
 
   return (
