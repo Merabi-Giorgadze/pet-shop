@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Header';
+import { fetchExchangeRate } from '../api/exchangeApi';
 
 const API_KEY = "1vpxH5UWS87ro5SwSQVGbdaUayeNNYpWdxtqP28QkyGCEONE2A";
 const API_URL_ANIMALS = "https://crudapi.co.uk/api/v1/animal";
@@ -10,6 +11,7 @@ const Card = () => {
   const [modalData, setModalData] = useState(null); 
   const [isModalOpen, setModalOpen] = useState(false);
   const [isDollar, setIsDollar] = useState(false);
+  const [exchangeRate, setExchangeRate] = useState(2.6);
 
   useEffect(() => {
     const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -20,6 +22,7 @@ const Card = () => {
       initialQuantities[animal._uuid] = 1;
     });
     setQuantities(initialQuantities);
+    fetchExchangeRate().then(rate => setExchangeRate(rate));
   }, []);
 
   const handleIncrease = (animalId) => {
@@ -80,7 +83,7 @@ const Card = () => {
       );
 
       const totalPrice = isDollar
-        ? (animal.price * quantity / 2.6).toFixed(2)
+        ? (animal.price * quantity / exchangeRate).toFixed(2)
         : (animal.price * quantity).toFixed(2);
 
 
@@ -110,7 +113,7 @@ const Card = () => {
           wishlist.map(animal => {
             const quantity = quantities[animal._uuid] || 1;
             const totalPrice = (animal.price && !isNaN(animal.price)) 
-              ? (isDollar ? (Number(animal.price) * quantity / 2.6).toFixed(2) : (Number(animal.price) * quantity).toFixed(2)) 
+              ? (isDollar ? (Number(animal.price) * quantity / exchangeRate).toFixed(2) : (Number(animal.price) * quantity).toFixed(2)) 
               : 'N/A';
 
             return (
@@ -125,7 +128,7 @@ const Card = () => {
                   <strong>Popularity:</strong> {animal.isPopular ? 'Yes' : 'No'}
                 </div>
                 <div>
-                  <strong>Price:</strong> {animal.price && !isNaN(animal.price) ? (isDollar ? (Number(animal.price) / 2.6).toFixed(2) : Number(animal.price).toFixed(2)) : 'N/A'} {isDollar ? '$' : '₾'}
+                  <strong>Price:</strong> {animal.price && !isNaN(animal.price) ? (isDollar ? (Number(animal.price) / exchangeRate).toFixed(2) : Number(animal.price).toFixed(2)) : 'N/A'} {isDollar ? '$' : '₾'}
                 </div>
                 <div>
                   <strong>Stock:</strong> {typeof animal.stock === 'number' ? animal.stock : 'N/A'}
