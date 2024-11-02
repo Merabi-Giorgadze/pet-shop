@@ -28,7 +28,7 @@ const Donate = () => {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    navigate('/'); // Navigate back to the main page
+    navigate('/');
   };
 
   return (
