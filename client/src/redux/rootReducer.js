@@ -3,8 +3,8 @@ import animalReducer from './animalReducer';
 import cardReducer from './cardReducer';
 
 const rootReducer = combineReducers({
-  animal: animalReducer, // Manages selected animals
-  wishlist: cardReducer,  // Manages wishlist
+  animal: animalReducer,
+  wishlist: cardReducer,
 });
 
 export default rootReducer;
