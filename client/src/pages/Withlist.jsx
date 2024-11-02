@@ -73,7 +73,7 @@ const Wishlist = () => {
               <div>
                 <input 
                   type="checkbox" 
-                  checked={checkedAnimals[index]} 
+                  checked={checkedAnimals[index] || false}
                   onChange={() => handleToggleIndividual(index)} 
                 />
                 Name: {animal.name}
