@@ -1,7 +1,7 @@
 import { ADD_TO_WISHLIST } from './actions';
 
 const initialState = {
-  wishlist: [], // New state for wishlist
+  wishlist: [],
 };
 
 const cardReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const cardReducer = (state = initialState, action) => {
     case ADD_TO_WISHLIST:
       return {
         ...state,
-        wishlist: [...state.wishlist, action.payload], // Add the animal to the wishlist
+        wishlist: [...state.wishlist, action.payload],
       };
     default:
       return state;
