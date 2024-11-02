@@ -1,7 +1,7 @@
 import { ADD_ANIMAL, REMOVE_ANIMAL } from './actions';
 
 const initialState = {
-  selectedAnimals: JSON.parse(localStorage.getItem('selectedAnimals')) || [], // დაიწერა ლოკალურ საცავში
+  selectedAnimals: JSON.parse(localStorage.getItem('selectedAnimals')) || [],
 };
 
 const animalReducer = (state = initialState, action) => {
@@ -9,10 +9,10 @@ const animalReducer = (state = initialState, action) => {
     case ADD_ANIMAL:
       const exists = state.selectedAnimals.some(animal => animal._uuid === action.payload._uuid);
       if (exists) {
-        return state; // დაბრუნდეს მიმდინარე მდგომარეობა, თუ ცხოველი უკვე არის არჩეული
+        return state;
       }
       const updatedAnimalsAfterAdd = [...state.selectedAnimals, action.payload];
-      localStorage.setItem('selectedAnimals', JSON.stringify(updatedAnimalsAfterAdd)); // შეინახეთ ლოკალურ საცავში
+      localStorage.setItem('selectedAnimals', JSON.stringify(updatedAnimalsAfterAdd));
       return {
         ...state,
         selectedAnimals: updatedAnimalsAfterAdd,
@@ -20,7 +20,7 @@ const animalReducer = (state = initialState, action) => {
 
     case REMOVE_ANIMAL:
       const updatedAnimalsAfterRemove = state.selectedAnimals.filter(animal => animal._uuid !== action.payload);
-      localStorage.setItem('selectedAnimals', JSON.stringify(updatedAnimalsAfterRemove)); // განახლება ლოკალურ საცავში
+      localStorage.setItem('selectedAnimals', JSON.stringify(updatedAnimalsAfterRemove));
       return {
         ...state,
         selectedAnimals: updatedAnimalsAfterRemove,
