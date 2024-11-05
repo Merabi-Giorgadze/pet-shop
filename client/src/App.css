@@ -271,7 +271,7 @@ h1 {
 }
 
 .wishlist li > div > button {
-  width: 70px;
+  width: 100%;
   background-color: rgba(24, 81, 225, 0.379);
   border-radius: 7px;
   box-shadow: #0f3109 2px 3px 5px;
