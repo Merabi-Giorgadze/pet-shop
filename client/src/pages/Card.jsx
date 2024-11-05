@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import { fetchExchangeRate } from '../api/exchangeApi';
+import { useDispatch } from 'react-redux';
+import { REMOVE_FROM_WISHLIST } from '../redux/actions';
+
 
 const API_KEY = "1vpxH5UWS87ro5SwSQVGbdaUayeNNYpWdxtqP28QkyGCEONE2A";
 const API_URL_ANIMALS = "https://crudapi.co.uk/api/v1/animal";
+
 
 const Card = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -12,6 +16,7 @@ const Card = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isDollar, setIsDollar] = useState(false);
   const [exchangeRate, setExchangeRate] = useState(2.6);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -43,6 +48,7 @@ const Card = () => {
     const updatedWishlist = wishlist.filter(animal => animal._uuid !== animalId);
     setWishlist(updatedWishlist);
     localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+    dispatch({ type: REMOVE_FROM_WISHLIST, payload: animalId });
   };
 
   const handlePurchase = async (animal) => {
