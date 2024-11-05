@@ -80,20 +80,26 @@ const AnimalList = () => {
         {editingAnimal ? (
           <div  className="edd-anim">
             <h3>Edit Animal</h3>
+            <label htmlFor="Name">Name</label>
             <input
               type="text"
+              id="Name"
               placeholder="Name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             />
+            <label htmlFor="Price">Price</label>
             <input
               type="number"
+              id="Price"
               placeholder="Price"
               value={formData.price}
               onChange={(e) => setFormData({ ...formData, price: Math.max(0, parseFloat(e.target.value)) })}
             />
+            <label htmlFor="Description">Description</label>
             <input
               type="text"
+              id="Description"
               placeholder="Description"
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
@@ -108,14 +114,18 @@ const AnimalList = () => {
                 />
               </label>
             </div>
+            <label htmlFor="Stock">Stock</label>
             <input
               type="number"
+              id="Stock"
               placeholder="Stock"
               value={formData.stock}
               onChange={(e) => setFormData({ ...formData, stock: Math.max(0, parseInt(e.target.value)) })}
             />
+            <label htmlFor="Expectancy">Life Expectancy</label>
             <input
               type="number"
+              id="Expectancy"
               placeholder="Life Expectancy"
               value={formData.lifeExpectancy}
               onChange={(e) => setFormData({ ...formData, lifeExpectancy: Math.max(0, parseInt(e.target.value)) })}
