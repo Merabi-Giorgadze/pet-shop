@@ -26,14 +26,19 @@ const Wishlist = () => {
   const handleSubmit = () => {
     const selectedToAdd = selectedAnimals.filter((_, index) => checkedAnimals[index]);
     const validAnimals = [];
+    const currentWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
     selectedToAdd.forEach(animal => {
-      if (animal.stock > 0) {
+    if (animal.stock > 0) {
+      if (!currentWishlist.some(item => item._uuid === animal._uuid)) {
         validAnimals.push(animal);
       } else {
-        alert(`${animal.name} - Out of stock`);
+        alert(`${animal.name} - Already in Card`);
       }
-    });
+    } else {
+      alert(`${animal.name} - Out of stock`);
+    }
+  });
 
     if (validAnimals.length > 0) {
       const currentWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
